@@ -46,14 +46,13 @@ const CreateUser = () => {
       formData.append("address", values.address);
       formData.append("image", values.image);
 
-      // ✅ Convert subjects to an array of values
       formData.append(
         "subjects",
         JSON.stringify(values.subjects.map((subject) => subject.value))
       );
 
       const response = await axios.post(
-        "http://localhost:5000/students",
+        "https://student-dashboard-server.vercel.app/students",
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },
