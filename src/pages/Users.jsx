@@ -12,7 +12,9 @@ const Users = () => {
 
   const fetchStudents = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/students");
+      const response = await axios.get(
+        "https://student-dashboard-server.vercel.app/students"
+      );
       setStudents(response.data);
     } catch (error) {
       console.error("Error fetching students:", error);
@@ -28,7 +30,9 @@ const Users = () => {
     if (!confirmDelete) return;
 
     try {
-      await axios.delete(`http://localhost:5000/students/${id}`);
+      await axios.delete(
+        `https://student-dashboard-server.vercel.app/students/${id}`
+      );
       setStudents(students.filter((student) => student._id !== id));
     } catch (error) {
       console.error("Error deleting student:", error);

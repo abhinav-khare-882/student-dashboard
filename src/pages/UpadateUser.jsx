@@ -20,7 +20,7 @@ const UpdateUser = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/students/${id}`)
+      .get(`https://student-dashboard-server.vercel.app/students/${id}`)
       .then((res) => {
         setFormData({
           ...res.data,
@@ -51,7 +51,10 @@ const UpdateUser = () => {
     };
 
     try {
-      await axios.put(`http://localhost:5000/students/${id}`, updatedData);
+      await axios.put(
+        `https://student-dashboard-server.vercel.app/students/${id}`,
+        updatedData
+      );
       alert("User updated successfully!");
       navigate("/");
     } catch (error) {
